@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Psychometric Test</title>
+    {% include 'semantics/tailwindCDN.html' %}
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+    .content {
+        min-height: 84%;
+    }
+</style>
+<link rel="stylesheet" href="static/css/test.css">
+
+
+<body>
+
+    <div class="content">
+        <div>
+            {% include 'semantics/header.html' %}
+            
+            <div id="MVP">
+
+                
+                <div class="app">
+                    <h1 > Psychometric Test </h1>
+                    <div class="quiz">
+                        <h2  id="question">
+                            Question goes here
+                        </h2>
+                        <div id="answer-buttons" >
+                            <!-- <button class="btn">answer-1</button>
+                            <button class="btn">answer-2</button>
+                            <button class="btn">answer-3</button>
+                            <button class="btn">answer-4</button>
+                            -->
+                        
+                        
+                            <!-- <label class="btn radio-button">
+                                <input type="radio" name="question1" value="0" class="radio-button">
+                                <span>Nearly every day</span>
+                            </label> -->
+                            
+                        </div>
+                            
+                        <button class="next-btn">Next</button>
+                        <form action="/result" method="post"> 
+                            <input type="hidden" name="score" value="0" id="scoreInput">
+                            <button class="next-btn" id="submit" style="display:none">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+                
+            </div>
+        
+
+
+             
+
+        </div>
+    </div>
+
+
+    {% include 'semantics/footer.html' %}
+
+    <script src="/static/js/test.js"></script>
+</body>
+
+</html>

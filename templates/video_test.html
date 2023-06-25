@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Test</title>
+  {% include 'semantics/tailwindCDN.html' %}
+</head>
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+
+  .content {
+    min-height: 84%;
+  }
+</style>
+<link rel="stylesheet" href="static/css/test.css">
+
+
+<body>
+
+  <div class="content">
+    <div>
+      {% include 'semantics/header.html' %}
+
+
+
+      <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-center">
+          
+            <div
+                class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center" >
+            
+
+                <img class="object-cover object-center rounded" alt="hero" src="{{ url_for('video_feed') }}">
+                <!-- <img class="object-cover object-center rounded" alt="hero" src=" https://dummyimage.com/600x400/b3a3b3/52547a.jpg&text=Dummy+Image"> -->
+              
+              
+          
+            </div>
+
+          
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <div id="MVP">
+
+                
+                <div class="app">
+                    <h1 > Psychometric Test </h1>
+                    <div class="quiz">
+                        <h2  id="question">
+                            Question goes here
+                        </h2>
+                        <div id="answer-buttons" >
+                            <!-- <button class="btn">answer-1</button>
+                            <button class="btn">answer-2</button>
+                            <button class="btn">answer-3</button>
+                            <button class="btn">answer-4</button>
+                            -->
+                        
+                        
+                            <!-- <label class="btn radio-button">
+                                <input type="radio" name="question1" value="0" class="radio-button">
+                                <span>Nearly every day</span>
+                            </label> -->
+                            
+                        </div>
+                            
+                        <button class="next-btn">Next</button>
+                        <form action="/video-result" method="post"> 
+                            <input type="hidden" name="score" value="0" id="scoreInput">
+                            <button class="next-btn" id="submit" style="display:none">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+                
+            </div>
+          </div> 
+
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+
+
+  {% include 'semantics/footer.html' %}
+  <script src="/static/js/test.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard</title>
+    {% include 'semantics/tailwindCDN.html' %}
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    .content {
+        min-height: 84%;
+    }
+</style>
+
+<body>
+
+    <div class="content">
+        <div>
+            {% include 'semantics/header.html' %}
+
+            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+            <section class="text-gray-600 body-font relative">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="flex flex-col text-center w-full mb-12">
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Create New Election</h1>
+                        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                            Write name of the new election and then press "create" button.
+                        </p>
+                    </div>
+                    <form action="/add-election" method="post">
+                        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                            <div class="flex flex-wrap -m-2">
+                                <div class="p-2 w-full">
+                                    <div class="relative">
+                                        <label for="name" class="leading-7 text-sm text-gray-600">Election Name
+                                            :</label>
+                                        <input type="text" id="name" name="electionName"
+                                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                </div>
+                                <div class="p-2 w-full">
+                                    <button type="submit"
+                                        class=" flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                                        Create
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="flex flex-col text-center w-full mb-20">
+                        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">
+                            Remove Elections
+                        </h1>
+                        <h1 class="sm:text-14xl text-3xl font-medium title-font mb-2 text-gray-900">
+                            Live Elections List
+                        </h1>
+                        
+                        
+                        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                            you can select an entry, and press "close Election" button to close the Election.
+                        </p>
+                    </div>
+                    <form action="/delete-election" method="post">
+                        <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+                            <table class="table-auto w-full text-left whitespace-no-wrap">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
+                                            Election ID </th>
+                                        <th
+                                            class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+                                            Election Name</th>
+                                        <th
+                                            class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+                                            Election Date</th>
+                                        <th
+                                            class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+                                            Election Status</th>
+                                        <th
+                                            class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for (index, ele) in list: %}
+                                    <tr>
+                                        <td class="px-4 py-3 ">00{{index+1}}</td>
+                                        <td class="px-4 py-3 ">{{ele}}</td>
+                                        <td class="px-4 py-3 ">{{today}}</td>
+                                        <td class="px-4 py-3 text-lg text-gray-900">open</td>
+                                        <td class="w-10 text-center">
+                                            <input name="electionIndex" value={{index}} type="radio">
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
+                            <a class="text-purple-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            <button
+                                class="flex ml-auto text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded">
+                                Close Election
+                            </button>
+                    </form>
+                </div>
+        </div>
+        </section>
+
+
+
+
+
+    </div>
+    </div>
+
+
+    {% include 'semantics/footer.html' %}
+
+</body>
+
+</html>
