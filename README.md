@@ -1,2 +1,2 @@
 # mental-health-monitor
-![screenshot](screenshots/1.jpg)
+![screenshot](ScreenShots/1.jpg)
