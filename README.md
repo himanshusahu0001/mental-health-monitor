@@ -1,5 +1,11 @@
 # Mental Health Monitor:using Emotion Recognition and PHQ-9
 
+**Tech Stack**: Python, Flask, TensorFlow, OpenCv
+* Developed a Python **Flask-based** system that combines **Convolutional Neural Network (CNN)** and **OpenCV**
+to **detect signs** of **depression** with an **accuracy of 89%**
+* Utilized **emotion recognition** and a **series of questions** to assess users’ mental health status, **providing
+valuable insights** and potential **early intervention**
+
 ## Video Demo
 [![Video Demo](https://img.youtube.com/vi/_XwTJfBSl0c/0.jpg)](https://www.youtube.com/watch?v=_XwTJfBSl0c)
 
